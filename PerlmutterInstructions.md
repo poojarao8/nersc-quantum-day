@@ -51,7 +51,7 @@ Pull in the image using:
 ```
 shifterimg -v pull ghcr.io/1tnguyen/cuda-quantum:mpich-231710
 ```
-Note that this image has been configured to utilize the CRAY MPICH on nersc  
+Note that this image has been configured to utilize the cuda-aware CRAY MPICH on Perlmutter.  
 <br>
 To see the image:
 ```
@@ -69,7 +69,7 @@ salloc -N 1 --gpus-per-task=1 --ntasks-per-node=4 --gpu-bind=none -t 120 --qos=i
 
 Replace the `mXXXX_g` with your own project number.  
 <br>
-You should be able to see your home directory in here.  
+Once the allocation goes through, you should see the directory where you launched the job from.  
 <br>
 
 To run with a single gpu:
