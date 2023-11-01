@@ -104,7 +104,12 @@ To submit a batch job that will run across multiple nodes and multiple gpus, ple
 srun -N 256 -n 1024 shifter ghz.py –target nvidia-mgpu
 ```
 
-Replace `mXXXX_g` with your project name and adjust the wall clock time (set at 2 mins in the snapshot above). In this script, I am running the `ghz.py` file with 40 qubits using 256 nodes (256x4 = 1024 gpus), please change the parameters as per your requirements. If you want to run with a single gpu, adjust the number of nodes, etc. and replace `srun -N 256 -n 1024 shifter ghz.py –target nvidia-mgpu` with:
+Replace `mXXXX_g` with your project name and adjust the wall clock time (set at 2 mins in the snapshot above). In this script, I am running the `ghz.py` file with 40 qubits using 256 nodes (256x4 = 1024 gpus), please change the parameters as per your requirements. If you want to run with a single gpu, adjust the number of nodes, etc. and replace ```
+```
+srun -N 256 -n 1024 shifter ghz.py –target nvidia-mgpu
+```
+with:
+
 ```
 shifter python ghz.py --target nvidia
 ```
