@@ -1,8 +1,28 @@
+Participants who do not have NERSC accounts can avail training accounts. 
+The instructions to request training accounts are as follows:
+
+1. Please create a training account by signing up at the following link:
+https://iris.nersc.gov/train
+
+2. Make sure to remember your username and password generated at the end of the sign up process
+
+3. Ensure the login works by opening a terminal and logging on to Perlmutter, using
+'ssh <username>@perlmutter.nersc.gov'
+
+4. Review the following instructions to use jupyter@nersc:
+https://docs.nersc.gov/services/jupyter/
+
+5. Review the instructions to set-up Jupyter kernel with custom docker image:
+https://docs.nersc.gov/services/jupyter/
+
+
+## Steps to run with the CUDA Quantum container on Perlmutter.
+
 ## Step 1
 
 Create a directory, let’s call it `test-cudaq`.  
 <br>
-Put this file in the directory. Let’s call it `ghz.py`.
+Copy-paste the following code block in a file in the directory. Let’s call it `ghz.py`.
 ``` 
 import cudaq
 
