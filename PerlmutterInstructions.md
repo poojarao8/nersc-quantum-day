@@ -58,8 +58,8 @@ shifter /bin/bash
  
 To run the file with a single gpu acceleration:
 ```
-python ghz.py --target nvida
-``` 
+python ghz.py --target nvidia
+```
 
 You should see the prepared GHZ state with 30 qubits.  
 <br>
