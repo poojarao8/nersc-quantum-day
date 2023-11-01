@@ -1,4 +1,4 @@
-## Step 1 
+## Step 1
  
 Create a directory, let’s call it `test-cudaq`.  
 <br>
