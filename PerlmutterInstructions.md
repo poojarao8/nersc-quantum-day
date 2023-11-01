@@ -1,13 +1,13 @@
-Participants who do not have NERSC accounts can avail training accounts. 
-The instructions to request training accounts are as follows:
+
+## Instructions to request training accounts on NERSC
 
 1. Please create a training account by signing up at the following link:
 https://iris.nersc.gov/train
 
-2. Make sure to remember your username and password generated at the end of the sign up process
+2. Make sure to remember your username and password generated at the end of the sign up process.
 
 3. Ensure the login works by opening a terminal and logging on to Perlmutter, using
-'ssh <username>@perlmutter.nersc.gov'
+`ssh <username>@perlmutter.nersc.gov`.
 
 4. Review the following instructions to use jupyter@nersc:
 https://docs.nersc.gov/services/jupyter/
@@ -18,7 +18,7 @@ https://docs.nersc.gov/services/jupyter/
 
 ## Steps to run with the CUDA Quantum container on Perlmutter.
 
-## Step 1
+### Step 1
 
 Create a directory, let’s call it `test-cudaq`.  
 <br>
@@ -64,10 +64,10 @@ shifterimg images | grep -i "cuda-quantum"
 To ask for an interactive allocation using commandline (request 1 node with 4 gpus, spawn off 1 task per gpu with each gpu being visible to each task):
 
 ```
-salloc -N 1 --gpus-per-task=1 --ntasks-per-node=4 --gpu-bind=none -t 120 --qos=interactive -A m4390_g -C gpu --image=ghcr.io/1tnguyen/cuda-quantum:mpich-231023 --module=cuda-mpich
+salloc -N 1 --gpus-per-task=1 --ntasks-per-node=4 --gpu-bind=none -t 120 --qos=interactive -A mXXXX_g -C gpu --image=ghcr.io/1tnguyen/cuda-quantum:mpich-231023 --module=cuda-mpich
 ```
 
-Replace the `m4390_g` with your own project number.  
+Replace the `mXXXX_g` with your own project number.  
 <br>
 You should be able to see your home directory in here.  
 <br>
@@ -76,7 +76,7 @@ To start the container:
 shifter /bin/bash
 ```
 
-### Step 4:
+### Step 4
 
 To run the file with a single gpu acceleration:
 ```
@@ -89,7 +89,7 @@ To submit a batch job, please copy-paste these lines and let’s call that file 
 
 ```
 #!/bin/bash
-#SBATCH -A m4390_g
+#SBATCH -A mXXXX_g
 #SBATCH -C gpu
 #SBATCH -q regular
 #SBATCH -t 00:02:00
@@ -103,7 +103,7 @@ To submit a batch job, please copy-paste these lines and let’s call that file 
 srun -N 256 -n 1024 shifter ghz.py –target nvidia-mgpu
 ```
 
-Replace `m4390_g` with your project name and adjust the run time (right now it’s set at 2 mins). In this script, I am running with 256 nodes (256x4 =1024 gpus), please adjust that number as per your requirements.If you want to run with a single gpu, remove the srun command altogether and just use the following in the above file and change `-N` to 1:
+Replace `mXXXX_g` with your project name and adjust the wall clock time (set at 2 mins in the snapshot above). In this script, I am running with 256 nodes (256x4 = 1024 gpus), please adjust that number as per your requirements. If you want to run with a single gpu, remove the srun command altogether and just use the following in the above file and change `-N` to 1:
 ```
 $shifter python ghz.py --target nvidia
 ```
