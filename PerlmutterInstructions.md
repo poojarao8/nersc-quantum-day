@@ -1,6 +1,7 @@
 ## Step 1 
  
-Create a directory, let’s call it `test-cudaq`. <br>
+Create a directory, let’s call it `test-cudaq`.  
+<br>
 Put this file in the directory. Let’s call it `ghz.py`.
 ``` 
 import cudaq
@@ -30,7 +31,8 @@ Pull in the image using:
 ```
 shifterimg -v pull ghcr.io/1tnguyen/cuda-quantum:mpich-231710
 ```
-Note that this image has been configured to utilize the CRAY MPICH on nersc <br> 
+Note that this image has been configured to utilize the CRAY MPICH on nersc  
+<br> 
 To see the image:
 ```
 shifterimg images | grep -i "cuda-quantum"
@@ -45,9 +47,9 @@ To ask for an interactive allocation using commandline (request 1 node with 4 gp
 salloc -N 1 --gpus-per-task=1 --ntasks-per-node=4 --gpu-bind=none -t 120 --qos=interactive -A m4390_g -C gpu --image=ghcr.io/1tnguyen/cuda-quantum:mpich-231023 --module=cuda-mpich
 ```
  
-Replace the `m4390_g` with your own project number. 
+Replace the `m4390_g` with your own project number.  
 <br>
-You should be able to see your home directory in here. 
+You should be able to see your home directory in here.  
 <br>
 To start the container:
 ```
