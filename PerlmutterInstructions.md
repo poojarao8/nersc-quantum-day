@@ -36,7 +36,7 @@ def ghz_state(N):
     kernel.mz(q)
     return kernel
 
-n = 30
+n = 32
 print("Preparing GHZ state for", n, "qubits.")
 kernel = ghz_state(n)
 counts = cudaq.sample(kernel)
@@ -59,33 +59,34 @@ shifterimg images | grep -i "cuda-quantum"
 ```
 
 
-### Step 3
+### Interactive jobs
 
 To ask for an interactive allocation using commandline (request 1 node with 4 gpus, spawn off 1 task per gpu with each gpu being visible to each task):
 
 ```
-salloc -N 1 --gpus-per-task=1 --ntasks-per-node=4 --gpu-bind=none -t 120 --qos=interactive -A mXXXX_g -C gpu --image=ghcr.io/1tnguyen/cuda-quantum:mpich-231023 --module=cuda-mpich
+salloc -N 1 --gpus-per-task=1 --ntasks-per-node=4 --gpu-bind=none -t 120 --qos=interactive -A mXXXX_g -C gpu --module=cuda-mpich --image=ghcr.io/1tnguyen/cuda-quantum:mpich-231023
 ```
 
 Replace the `mXXXX_g` with your own project number.  
 <br>
 You should be able to see your home directory in here.  
 <br>
-To start the container:
+
+To run with a single gpu:
 ```
-shifter /bin/bash
+shifter python ghz.py --target nvidia
 ```
 
-### Step 4
-
-To run the file with a single gpu acceleration:
-```
-python ghz.py --target nvidia
-```
-
-You should see the prepared GHZ state with 30 qubits.  
+You should see the prepared GHZ state with 32 qubits.  
 <br>
-To submit a batch job, please copy-paste these lines and let’s call that file `multimode.script`.
+
+To run interactively with more qubits, you can use the `nvidia-mgpu` backend (1 node, 4 gpus):
+```
+srun -N 1 -n 4 shifter python ghz.py --target nvidia-mgpu
+```
+
+### Batch jobs
+To submit a batch job that will run across multiple nodes and multiple gpus, please copy-paste these lines and let’s call that file `multimode.script`.
 
 ```
 #!/bin/bash
@@ -97,13 +98,15 @@ To submit a batch job, please copy-paste these lines and let’s call that file 
 #SBATCH --ntasks-per-node=4
 #SBATCH --gpus-per-task=1
 #SBATCH --gpu-bind=none
-#SBATCH --image=ghcr.io/1tnguyen/cuda-quantum:mpich-231023
 #SBATCH --module=cuda-mpich
+#SBATCH --image=ghcr.io/1tnguyen/cuda-quantum:mpich-231023
  
 srun -N 256 -n 1024 shifter ghz.py –target nvidia-mgpu
 ```
 
-Replace `mXXXX_g` with your project name and adjust the wall clock time (set at 2 mins in the snapshot above). In this script, I am running with 256 nodes (256x4 = 1024 gpus), please adjust that number as per your requirements. If you want to run with a single gpu, remove the srun command altogether and just use the following in the above file and change `-N` to 1:
+Replace `mXXXX_g` with your project name and adjust the wall clock time (set at 2 mins in the snapshot above). In this script, I am running the `ghz.py` file with 40 qubits using 256 nodes (256x4 = 1024 gpus), please change the parameters as per your requirements. If you want to run with a single gpu, adjust the number of nodes, etc. and replace `srun -N 256 -n 1024 shifter ghz.py –target nvidia-mgpu` with:
 ```
 $shifter python ghz.py --target nvidia
 ```
+
+Finally, to submit your job to the queue, use `sbatch multinode.script`.
