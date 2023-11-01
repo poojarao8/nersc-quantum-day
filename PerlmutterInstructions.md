@@ -32,7 +32,7 @@ Pull in the image using:
 shifterimg -v pull ghcr.io/1tnguyen/cuda-quantum:mpich-231710
 ```
 Note that this image has been configured to utilize the CRAY MPICH on nersc  
-<br> 
+<br>
 To see the image:
 ```
 shifterimg images | grep -i "cuda-quantum"
