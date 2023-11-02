@@ -51,7 +51,6 @@ To run with a single gpu:
 ```
 shifter python <filename> --target nvidia
 ```  
-<br>
 
 To run with the `nvidia-mgpu` (for increasing the number of qubits) backend on 1 node and 4 gpus:
 ```
