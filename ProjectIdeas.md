@@ -14,7 +14,7 @@
  https://arxiv.org/abs/1803.11173
 
 7. Evaluate the implementation of the quantum natural gradient optimization technique to accelerate VQE convergence. 
-https://arxiv.org/abs/1909.02108
+  https://arxiv.org/abs/1909.02108
 
 8. Using a parameterized quantum circuit and a neural network, create a hybrid quantum GAN. 
 https://arxiv.org/abs/2212.11614 \
