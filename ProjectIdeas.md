@@ -13,18 +13,18 @@
 6. Demonstrate the barren plateau phenomena - show that as you increase qubit sizes, the variance in the gradient decreases. \
  https://arxiv.org/abs/1803.11173
 
-7. Evaluate the implementation of the quantum natural gradient optimization technique to accelerate VQE convergence. \ 
+7. Evaluate the implementation of the quantum natural gradient optimization technique to accelerate VQE convergence. 
 https://arxiv.org/abs/1909.02108
 
-8. Using a parameterized quantum circuit and a neural network, create a hybrid quantum GAN. \ 
+8. Using a parameterized quantum circuit and a neural network, create a hybrid quantum GAN. 
 https://arxiv.org/abs/2212.11614 \
 https://pennylane.ai/qml/demos/tutorial_QGAN.html \
 https://pennylane.ai/qml/demos/tutorial_quantum_gans.html 
 
-9. Circuit cutting is a powerful tool for running large quantum circuits on small computers. Implement this in CUDA Quantum. \ 
+9. Circuit cutting is a powerful tool for running large quantum circuits on small computers. Implement this in CUDA Quantum. 
 https://arxiv.org/abs/2012.02333
 
-10. Modify the qnn example, use a sci-kit learn dataset and implement the data reupload technique. \ 
+10. Modify the qnn example, use a sci-kit learn dataset and implement the data reupload technique. 
 https://arxiv.org/abs/1907.02085 
 
 11. Classical shadows is a powerful technique to reconstruct quantum states by measuring the circuit in random bases and postprocessing the data. Implement this in CUDA Quantum. \ 
