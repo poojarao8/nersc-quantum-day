@@ -47,14 +47,14 @@ Once the allocation goes through, you should see the directory where you launche
 <br>
 To run with a single gpu:
 <br>
-```
+
 shifter python <filename> --target nvidia
-```  
+ 
 <br>
 To run with the `nvidia-mgpu` (for increasing the number of qubits) backend on 1 node and 4 gpus:
-```
+
 srun -N 1 -n 4 shifter python <filename> --target nvidia-mgpu
-```
+
 
 #### Batch jobs
 To submit a batch job that will run across multiple nodes and multiple gpus:
