@@ -45,9 +45,8 @@ salloc -N 1 --gpus-per-task=1 --ntasks-per-node=4 --gpu-bind=none -t 120 --qos=i
 <br>
 Once the allocation goes through, you should see the directory where you launched the job from.  
 <br>
-
-
 To run with a single gpu:
+<br>
 ```
 shifter python <filename> --target nvidia
 ```  
