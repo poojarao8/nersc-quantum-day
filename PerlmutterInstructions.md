@@ -60,7 +60,7 @@ srun -N 1 -n 4 shifter python <filename> --target nvidia-mgpu
 ```
 
 #### Batch jobs
-Use [this script](https://github.com/poojarao8/nersc-quantum-day/blob/master/multinode.script) to run a multi-node multi-gpu simulation.
+Use [this script](https://github.com/poojarao8/nersc-quantum-day/blob/master/demo/multinode.script) to run a multi-node multi-gpu simulation.
 <br>
 To run with a single gpu, replace the `srun` line with 
 
