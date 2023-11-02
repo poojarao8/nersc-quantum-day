@@ -10,4 +10,4 @@
 #SBATCH --module=cuda-mpich
 #SBATCH --image=ghcr.io/1tnguyen/cuda-quantum:mpich-231710
  
-srun -N 2 -n 8 shifter ghz.py –target nvidia-mgpu
+srun -N 2 -n 8 shifter python ghz.py –target nvidia-mgpu
