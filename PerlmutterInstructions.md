@@ -1,4 +1,3 @@
-
 ## Instructions to request training accounts on NERSC
 
 1. Please create a training account by signing up at the following link:
@@ -8,12 +7,6 @@ https://iris.nersc.gov/train
 
 3. Ensure the login works by opening a terminal and logging on to Perlmutter, using
 `ssh <username>@perlmutter.nersc.gov`.
-
-4. Review the following instructions to use jupyter@nersc:
-https://docs.nersc.gov/services/jupyter/
-
-5. Review the instructions to set-up Jupyter kernel with custom docker image:
-https://docs.nersc.gov/services/jupyter/
 
 
 ## Steps to run with the CUDA Quantum container on Perlmutter.
