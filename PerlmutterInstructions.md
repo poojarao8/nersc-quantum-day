@@ -18,7 +18,7 @@ https://docs.nersc.gov/services/jupyter/
 
 ## Steps to run with the CUDA Quantum container on Perlmutter.
 
-### Step 1
+### Step 1: Pull the image
 Use this image:  `ghcr.io/1tnguyen/cuda-quantum:mpich-231710`
 
 Pull in the image using:
@@ -32,7 +32,7 @@ To see the image:
 shifterimg images | grep -i "cuda-quantum"
 ```
 
-### Spin-up the container
+### Step 2: Spin-up the container
 
 #### Interactive jobs
 
@@ -45,6 +45,7 @@ salloc -N 1 --gpus-per-task=1 --ntasks-per-node=4 --gpu-bind=none -t 120 --qos=i
 <br>
 Once the allocation goes through, you should see the directory where you launched the job from.  
 <br>
+
 To run with the default cpu backend:
 ```
 shifter python <filename> 
