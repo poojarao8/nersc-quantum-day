@@ -57,28 +57,9 @@ srun -N 1 -n 4 shifter python <filename> --target nvidia-mgpu
 
 
 #### Batch jobs
-To submit a batch job that will run across multiple nodes and multiple gpus:
-```
-#!/bin/bash
-#SBATCH -A <project_name>
-#SBATCH -C gpu
-#SBATCH -q regular
-#SBATCH -t 00:02:00
-#SBATCH -N 256
-#SBATCH --ntasks-per-node=4
-#SBATCH --gpus-per-task=1
-#SBATCH --gpu-bind=none
-#SBATCH --module=cuda-mpich
-#SBATCH --image=<image_name>
- 
-srun -N 256 -n 1024 shifter ghz.py –target nvidia-mgpu
-```
+Use [this script](https://github.com/poojarao8/nersc-quantum-day/blob/master/multinode.script) to run a multi-node multi-gpu simulation.
 
-Adjust the wall clock time (set at 2 mins in the snapshot above) and other parameters as per your requirements. If you want to run with a single gpu, replace 
-```
-srun -N 256 -n 1024 shifter ghz.py –target nvidia-mgpu
-```
-with:
+To run with a single gpu, replace the `srun` line with 
 
 ```
 shifter python ghz.py --target nvidia
